@@ -16,15 +16,17 @@
     return [...Array(numberOfSnowBalls)].map(() => {
       return {
         x: random(0, canvas.width),
-        y: random(0, canvas.height)
+        y: random(0, canvas.height),
+        opacity: random(0.5, 1),
+        radius: random(2, 4)
       }
     });
   }
 
   function drawSnowBall(canvasContext, snowBall) {
     canvasContext.beginPath();
-    canvasContext.arc(snowBall.x, snowBall.y, 4, 0, Math.PI * 2);
-    canvasContext.fillStyle = `rgba(255, 255, 255, 0.5)`;
+    canvasContext.arc(snowBall.x, snowBall.y, snowBall.radius, 0, Math.PI * 2);
+    canvasContext.fillStyle = `rgba(255, 255, 255, ${snowBall.opacity})`;
     canvasContext.fill();
   }
 
