@@ -30,6 +30,11 @@
     canvasContext.fill();
   }
 
+  function moveSnowBall(snowBall) {
+    snowBall.x += 5;
+    snowBall.y += 5;
+  }
+
   function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
@@ -37,7 +42,12 @@
   function run() {
     const {canvas, canvasContext, numberOfSnowBalls} = setup();
     const snowBalls = createSnowBalls(canvas, numberOfSnowBalls);
-    snowBalls.forEach((snowBall) => drawSnowBall(canvasContext, snowBall));
+
+    setInterval(() => {
+      canvasContext.clearRect(0, 0, canvas.width, canvas.height);
+      snowBalls.forEach((snowBall) => drawSnowBall(canvasContext, snowBall));
+      snowBalls.forEach((snowBall) => moveSnowBall(snowBall));
+    }, 50);
   }
 
   run();
