@@ -13,13 +13,16 @@
   }
 
   function createSnowBalls(canvas, numberOfSnowBalls) {
-    const x = [...Array(numberOfSnowBalls)].map(() => {
+    return [...Array(numberOfSnowBalls)].map(() => {
       return {
-        x: 50,
-        y: 50
+        x: random(0, canvas.width),
+        y: random(0, canvas.height)
       }
-    })
-    console.log(x);
+    });
+  }
+
+  function random(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   function run() {
