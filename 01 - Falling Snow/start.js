@@ -21,13 +21,21 @@
     });
   }
 
+  function drawSnowBall(canvasContext, snowBall) {
+    canvasContext.beginPath();
+    canvasContext.arc(snowBall.x, snowBall.y, 4, 0, Math.PI * 2);
+    canvasContext.fillStyle = `rgba(255, 255, 255, 0.5)`;
+    canvasContext.fill();
+  }
+
   function random(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   function run() {
     const {canvas, canvasContext, numberOfSnowBalls} = setup();
-    createSnowBalls(canvas, numberOfSnowBalls);
+    const snowBalls = createSnowBalls(canvas, numberOfSnowBalls);
+    snowBalls.forEach((snowBall) => drawSnowBall(canvasContext, snowBall));
   }
 
   run();
