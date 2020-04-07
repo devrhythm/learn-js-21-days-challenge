@@ -8,12 +8,23 @@
     return {
       canvas,
       canvasContext: canvas.getContext('2d'),
-      numberOfSnowBall: 250
+      numberOfSnowBalls: 250
     }
   }
 
+  function createSnowBalls(canvas, numberOfSnowBalls) {
+    const x = [...Array(numberOfSnowBalls)].map(() => {
+      return {
+        x: 50,
+        y: 50
+      }
+    })
+    console.log(x);
+  }
+
   function run() {
-    const {canvas, canvasContext, numberOfSnowBall} = setup();
+    const {canvas, canvasContext, numberOfSnowBalls} = setup();
+    createSnowBalls(canvas, numberOfSnowBalls);
   }
 
   run();
