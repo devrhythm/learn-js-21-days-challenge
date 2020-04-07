@@ -18,7 +18,9 @@
         x: random(0, canvas.width),
         y: random(0, canvas.height),
         opacity: random(0.5, 1),
-        radius: random(2, 4)
+        radius: random(2, 4),
+        speedX: random(-5, 5),
+        speedY: random(1, 3)
       }
     });
   }
@@ -31,8 +33,8 @@
   }
 
   function moveSnowBall(snowBall) {
-    snowBall.x += 5;
-    snowBall.y += 5;
+    snowBall.x += snowBall.speedX;
+    snowBall.y += snowBall.speedY;
   }
 
   function random(min, max) {
